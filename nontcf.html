@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+<h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br><h1>GDPR TCF v2 Implementation</h1><br>
+
+//stub file
+<script type="text/javascript">
+    !function () { var e = function () { var e, t = "__tcfapiLocator", a = [], n = window; for (; n;) { try { if (n.frames[t]) { e = n; break } } catch (e) { } if (n === window.top) break; n = n.parent } e || (!function e() { var a = n.document, r = !!n.frames[t]; if (!r) if (a.body) { var i = a.createElement("iframe"); i.style.cssText = "display:none", i.name = t, a.body.appendChild(i) } else setTimeout(e, 5); return !r }(), n.__tcfapi = function () { for (var e, t = arguments.length, n = new Array(t), r = 0; r < t; r++)n[r] = arguments[r]; if (!n.length) return a; if ("setGdprApplies" === n[0]) n.length > 3 && 2 === parseInt(n[1], 10) && "boolean" == typeof n[3] && (e = n[3], "function" == typeof n[2] && n[2]("set", !0)); else if ("ping" === n[0]) { var i = { gdprApplies: e, cmpLoaded: !1, cmpStatus: "stub" }; "function" == typeof n[2] && n[2](i) } else a.push(n) }, n.addEventListener("message", (function (e) { var t = "string" == typeof e.data, a = {}; try { a = t ? JSON.parse(e.data) : e.data } catch (e) { } var n = a.__tcfapiCall; n && window.__tcfapi(n.command, n.version, (function (a, r) { var i = { __tcfapiReturn: { returnValue: a, success: r, callId: n.callId } }; t && (i = JSON.stringify(i)), e.source.postMessage(i, "*") }), n.parameter) }), !1)) }; "undefined" != typeof module ? module.exports = e : e() }();
+</script>
+
+//user config snippet
+<script>
+        window._sp_ = {
+            config: {
+                accountId: 1584,
+                baseEndpoint: 'https://cdn.privacy-mgmt.com',
+                propertyId: 14578, //using template_test property
+                events: {
+                                onMessageReady: function () {
+                                    console.log('onMessageReady')
+                                },
+                                onMessageChoiceSelect: function (choice_id, choice_type_id) {
+                                    console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                                    console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
+                                },
+                                onPrivacyManagerAction: function (pmData) {
+                                    console.log('onPrivacyManagerAction', pmData)
+                                },
+                                onMessageChoiceError: function (err) {
+                                    console.log('onMessageChoiceError', err)
+                                },
+                                onConsentReady: function (consentUUID, euconsent) {
+                                    console.log('onConsentReady')
+                                    console.log('consentUUID', consentUUID)
+                                    console.log('euconsent', euconsent)
+                                },
+                                onPMCancel: function () {
+                                    console.log('onPMCancel')
+                                },
+                                onMessageReceiveData: function (data) {
+                                    console.log('onMessageReceiveData', data)
+                                    console.log(JSON.stringify(data));
+                                },
+                                // onError: (code, error, userReset) => {
+                                //         console.log(code)
+                                //         console.log(error)
+                                //         console.log(userReset)
+                                //     },
+                                onSPPMObjectReady: function () {
+                                 //console.log('onSPPMObjectReady', window._sp_.loadPrivacyManagerModal)
+                                // window._sp_.loadPrivacyManager(4400, '5d566301ab45d123ed973688')
+                                }
+                            },
+                        }
+                    }
+</script>
+
+//URL script
+<script src="https://cdn.privacy-mgmt.com/wrapperMessagingWithoutDetection.js"></script>
+
+</head>
+<body>
+<p>GDPR TCF v2 Implementation</p>
+<a onclick="window._sp_.loadPrivacyManagerModal(417221);" href="javascript:void(0);">Load First Layer Message</a>
+<span style="position: absolute; bottom: 0pt; left: 0pt;"></span> //to do FLM load you need to include it in a scenario and them make it live through campaign
+<p></p>
+<a onclick="window._sp_.loadPrivacyManagerModal(393754, 'purposes');" href="javascript:void(0);">Load PM</a>
+<span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
+    <div></div> <div></div>
+</body>
+</html>
