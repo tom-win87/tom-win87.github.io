@@ -15,9 +15,45 @@
             config: {
                 accountId: 1584,
                 baseEndpoint: 'https://cdn.privacy-mgmt.com',
-                propertyId: 14578 //using template_test property
-            }
-        }
+                propertyId: 14578, //using template_test property
+                events: {
+                                onMessageReady: function () {
+                                    console.log('onMessageReady')
+                                },
+                                onMessageChoiceSelect: function (choice_id, choice_type_id) {
+                                    console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                                    console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
+                                },
+                                onPrivacyManagerAction: function (pmData) {
+                                    console.log('onPrivacyManagerAction', pmData)
+                                },
+                                onMessageChoiceError: function (err) {
+                                    console.log('onMessageChoiceError', err)
+                                },
+                                onConsentReady: function (consentUUID, euconsent) {
+                                    console.log('onConsentReady')
+                                    console.log('consentUUID', consentUUID)
+                                    console.log('euconsent', euconsent)
+                                },
+                                onPMCancel: function () {
+                                    console.log('onPMCancel')
+                                },
+                                onMessageReceiveData: function (data) {
+                                    console.log('onMessageReceiveData', data)
+                                    console.log(JSON.stringify(data));
+                                },
+                                // onError: (code, error, userReset) => {
+                                //         console.log(code)
+                                //         console.log(error)
+                                //         console.log(userReset)
+                                //     },
+                                onSPPMObjectReady: function () {
+                                 //console.log('onSPPMObjectReady', window._sp_.loadPrivacyManagerModal)
+                                // window._sp_.loadPrivacyManager(4400, '5d566301ab45d123ed973688')
+                                }
+                            },
+                        }
+                    }
 </script>
 
 //URL script
