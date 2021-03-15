@@ -10,6 +10,14 @@
 </script>
 //api stuff
 <script>
+__tcfapi('addEventListener', 2, function (tcData, success) {
+           if (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete') {
+               __tcfapi('getCustomVendorConsents', 2, (data) => console.log(data))
+           }
+       });
+
+
+
     __tcfapi('addEventListener', 2, (tcData, success) => {
         if (success) {
             console.log('tcData from event: ', tcData);
