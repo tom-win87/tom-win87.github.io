@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-      !function(n,e,o,r,i){if(!e){e=e||{},window.permutive=e,e.q=[],e.config=i||{},e.config.projectId=o,e.config.apiKey=r,e.config.environment=e.config.environment||"production";for(var t=["addon","identify","track","trigger","query","segment","segments","ready","on","once","user","consent"],c=0;c<t.length;c++){var f=t[c];e[f]=function(n){return function(){var o=Array.prototype.slice.call(arguments,0);e.q.push({functionName:n,arguments:o})}}(f)}}}(document,window.permutive,"3aba5292-ba75-422b-8715-bd21146f7836","6f1150a7-e587-49c6-b439-a4b7ee68a5a7",{});
-    </script>
-    <title></title>
+    <title>CCPA Tom test</title>
     <!-- Sourcepoint stub function     -->
     <script type="text/javascript">(function () { var e = false; var c = window; var t = document; function r() { if (!c.frames["__uspapiLocator"]) { if (t.body) { var a = t.body; var e = t.createElement("iframe"); e.style.cssText = "display:none"; e.name = "__uspapiLocator"; a.appendChild(e) } else { setTimeout(r, 5) } } } r(); function p() { var a = arguments; __uspapi.a = __uspapi.a || []; if (!a.length) { return __uspapi.a } else if (a[0] === "ping") { a[2]({ gdprAppliesGlobally: e, cmpLoaded: false }, true) } else { __uspapi.a.push([].slice.apply(a)) } } function l(t) { var r = typeof t.data === "string"; try { var a = r ? JSON.parse(t.data) : t.data; if (a.__cmpCall) { var n = a.__cmpCall; c.__uspapi(n.command, n.parameter, function (a, e) { var c = { __cmpReturn: { returnValue: a, success: e, callId: n.callId } }; t.source.postMessage(r ? JSON.stringify(c) : c, "*") }) } } catch (a) { } } if (typeof __uspapi !== "function") { c.__uspapi = p; __uspapi.msgHandler = l; c.addEventListener("message", l, false) } })();</script>
 
@@ -19,11 +16,11 @@
     config: {
       mmsDomain: "https://message.sp-prod.net",
       ccpaOrigin: "https://ccpa-service.sp-prod.net",
-      siteHref: "http://sp-ccpa-test.herokuapp.com-ccpa",
-      privacyManagerId: "5e8f4d1c0d337d2559996eed",
-      accountId: "22",
+      privacyManagerId: "5ff8b86377fdf469606c25fb",
+      siteHref: "https://tom-win87.github.io/ccpa.html",
+      accountId: 1584,
       getDnsMsgMms: true,
-      alwaysDisplayDns: false,
+      alwaysDisplayDns: false
       events: {
         onMessageReady: function (data) {
           console.log('onMessageReady: '+JSON.stringify(data));
@@ -58,9 +55,8 @@
     }
   }
 </script>
-<!-- <script src="https://ddhmlhfna6zcj.cloudfront.net/ccpa.js"></script> -->
-<script src="https://clientjsv2-ccpa.s3.amazonaws.com/versioned/ccpa.js"></script>
-<a onclick="window._sp_ccpa.loadPrivacyManager(7867, '5e8f4d1c0d337d2559996eed');" href="javascript:void(0);">Load PM</a>
+<script src="https://ccpa.sp-prod.net/ccpa.js"></script>
+<a onclick="window._sp_ccpa.loadPrivacyManagerModal(15654, '5ff8b86377fdf469606c25fb');" href="javascript:void(0);">Load PM</a>
 <span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
 
 </body>
