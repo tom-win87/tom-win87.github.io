@@ -21,39 +21,8 @@
       privacyManagerId: "5ff8b86377fdf469606c25fb",
       getDnsMsgMms: true,
       alwaysDisplayDns: false
-      events: {
-        onMessageReady: function (data) {
-          console.log('onMessageReady: '+JSON.stringify(data));
-        },
-        onMessageChoiceSelect: function (choice_id, choice_type_id) {
-          console.log('onMessageChoiceSelect choice_id: ', choice_id);
-          console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
-        },
-        onPrivacyManagerAction: function (pmData) {
-          console.log('onPrivacyManagerAction', pmData)
-        },
-        onMessageChoiceError: function (err) {
-          console.log('onMessageChoiceError', err)
-        },
-        onConsentReady: function (consentUUID, euconsent) {
-          console.log('onConsentReady')
-          console.log('consentUUID', consentUUID)
-          console.log('euconsent', euconsent)
-        },
-        onPMCancel: function () {
-          console.log('onPMCancel')
-        },
-        onMessageReceiveData: function (data) {
-          console.log('onMessageReceiveData', data)
-
-        },
-        onSPPMObjectReady: function () {
-          //console.log('onSPPMObjectReady', window._sp_.loadPrivacyManagerModal)
-          // window._sp_.loadPrivacyManager(4400, '5d566301ab45d123ed973688')
-        }
-      },
     }
-  }
+}
 </script>
 <script src="https://ccpa.sp-prod.net/ccpa.js"></script>
 <a onclick="window._sp_ccpa.loadPrivacyManager(15654, '5ff8b86377fdf469606c25fb');" href="javascript:void(0);">Settings</a>
