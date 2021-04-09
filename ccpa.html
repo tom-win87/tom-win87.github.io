@@ -25,7 +25,16 @@
 <a onclick="window._sp_ccpa.loadPrivacyManagerModal(null, '5ff8b86377fdf469606c25fb');" href="javascript:void(0);">Settings</a>
 <span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
 
-
+<iframe id="github-iframe" src=""></iframe>
+<script>
+    fetch('https://api.github.com/repos/ileathan/hubot-mubot/contents/src/mubot.coffee')
+        .then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            var iframe = document.getElementById('github-iframe');
+            iframe.src = 'data:text/html;base64,' + encodeURIComponent(data['content']);
+        });
+</script>
 
 </body>
 </html>
