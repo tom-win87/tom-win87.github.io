@@ -10,6 +10,67 @@
 
     <script>(function () { var e = false; var c = window; var t = document; function r() { if (!c.frames["__uspapiLocator"]) { if (t.body) { var a = t.body; var e = t.createElement("iframe"); e.style.cssText = "display:none"; e.name = "__uspapiLocator"; a.appendChild(e) } else { setTimeout(r, 5) } } } r(); function p() { var a = arguments; __uspapi.a = __uspapi.a || []; if (!a.length) { return __uspapi.a } else if (a[0] === "ping") { a[2]({ gdprAppliesGlobally: e, cmpLoaded: false }, true) } else { __uspapi.a.push([].slice.apply(a)) } } function l(t) { var r = typeof t.data === "string"; try { var a = r ? JSON.parse(t.data) : t.data; if (a.__cmpCall) { var n = a.__cmpCall; c.__uspapi(n.command, n.parameter, function (a, e) { var c = { __cmpReturn: { returnValue: a, success: e, callId: n.callId } }; t.source.postMessage(r ? JSON.stringify(c) : c, "*") }) } } catch (a) { } } if (typeof __uspapi !== "function") { c.__uspapi = p; __uspapi.msgHandler = l; c.addEventListener("message", l, false) } })();
 </script>
+//api stuff
+<script>
+__tcfapi('addEventListener', 2, function (tcData, success) {
+           if (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete') {
+               __tcfapi('getCustomVendorConsents', 2, (data) => console.log(data))
+           }
+       });
+
+
+
+    __tcfapi('addEventListener', 2, (tcData, success) => {
+        if (success) {
+            console.log('tcData from event: ', tcData);
+            const status = tcData.eventStatus;
+            console.log("[DEBUG] TCF event", tcData.eventStatus)
+            if (status === "tcloaded") {
+                document.cookie=`tcloaded=${JSON.stringify(tcData)}`
+                // __tcfapi('removeEventListener', 2, (success) => {
+                //     console.log('Removed ', tcData.listenerId)
+                // }, tcData.listenerId);
+            }
+            else if (status === 'cmpuishown') {
+                document.cookie=`cmpuishown=${JSON.stringify(tcData)}`
+                // __tcfapi('removeEventListener', 2, (success) => {
+                //     console.log('Removed ', tcData.listenerId)
+                // }, tcData.listenerId);
+            }
+            else if (status==='useractioncomplete') {
+                document.cookie=`useractioncomplete=${JSON.stringify(tcData)}`;
+                // __tcfapi('removeEventListener', 2, (success) => {
+                //     console.log('Removed ', tcData.listenerId)
+                // }, tcData.listenerId);
+            }
+        };
+    });
+    const findCookies = (name) => document.cookie.split('; ').find(r => r.startsWith(name)).split('=')[1]
+    // __tcfapi('addEventListener', 2, (tcData, success) => {
+    //     if (success) {
+    //         const status = tcData.eventStatus;
+    //         console.log("[DEBUG] TCF event", status)
+    //     if (status === "cmpuloaded") {
+    //         document.cookie=`cmpuloaded=${cmpuloaded}`
+    //     }};
+    // });
+    // __tcfapi('addEventListener', 2, (tcData, success) => {
+    //     if (success) {
+    //         const status = tcData.eventStatus;
+    //         console.log("[DEBUG] TCF event", status)
+    //     if (status === "useractioncomplete") {
+    //         document.cookie=`useractioncomplete=${useractioncomplete}`
+    //     }};
+    //     });
+
+    let t1 = performance.now()
+    let t2
+    __tcfapi('getTCData', 2, (data) => {
+        t2 = performance.now()
+        console.log('TIME TAKE BY getTCData: ', t2 - t1)
+        console.log(data)
+    })
+</script>
 //client config
     <script>
     window._sp_queue = [];
@@ -54,3 +115,8 @@
     }
     </script>
     <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
+</head>
+    <body>
+    <p>Multi-campaign Implementation</p>
+    </body>
+    </html>
