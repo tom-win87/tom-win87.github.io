@@ -22,7 +22,9 @@
                     },
                     gdpr: { },
                     propertyHref: 'https://multicampaign2.com',
-                    joinHref: true,
+                    targetingParams:{
+                        dark-mode: true
+                    },
                     events: {
                         onMessageChoiceSelect: function() {
                             console.log('[event] onMessageChoiceSelect', arguments);
