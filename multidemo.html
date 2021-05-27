@@ -23,32 +23,38 @@
                     gdpr: { },
                     propertyHref: 'https://multicampaign2.com',
                     events: {
-                        onMessageChoiceSelect: function() {
-                            console.log('[event] onMessageChoiceSelect', arguments);
+                        onMessageReady: function () {
+                            console.log('onMessageReady')
                         },
-                        onMessageReady: function() {
-                            console.log('[event] onMessageReady', arguments);
+                        onMessageChoiceSelect: function (choice_id, choice_type_id) {
+                            console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                            console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
                         },
-                        onMessageChoiceError: function() {
-                            console.log('[event] onMessageChoiceError', arguments);
+                        onPrivacyManagerAction: function (pmData) {
+                            console.log('onPrivacyManagerAction', pmData)
                         },
-                        onPrivacyManagerAction: function() {
-                            console.log('[event] onPrivacyManagerAction', arguments);
-                        },
-                        onPMCancel: function() {
-                            console.log('[event] onPMCancel', arguments);
-                        },
-                        onMessageReceiveData: function() {
-                            console.log('[event] onMessageReceiveData', arguments);
-                        },
-                        onSPPMObjectReady: function() {
-                            console.log('[event] onSPPMObjectReady', arguments);
+                        onMessageChoiceError: function (err) {
+                            console.log('onMessageChoiceError', err)
                         },
                         onConsentReady: function (consentUUID, euconsent) {
-                            console.log('[event] onConsentReady', arguments);
+                            console.log('onConsentReady')
+                            console.log('consentUUID', consentUUID)
+                            console.log('euconsent', euconsent)
                         },
-                        onError: function() {
-                            console.log('[event] onError', arguments);
+                        onPMCancel: function () {
+                            console.log('onPMCancel')
+                        },
+                        onMessageReceiveData: function (data) {
+                            console.log('onMessageReceiveData', data)
+                            console.log(JSON.stringify(data));
+                        },
+                        onSPPMObjectReady: function () {
+                             console.log('onSPPMObjectReady')
+                        },
+                        onError: function (errorCode, errorObject, userReset){
+                            console.log('errorCode: ' + errorCode);
+                            console.log(errorObject);
+                            console.log('userReset: ' + userReset);
                         },
                     }
                 }
