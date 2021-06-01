@@ -26,10 +26,10 @@
                         onMessageReady: function () {
                             console.log('onMessageReady')
                         },
-                        onMessageChoiceSelect: function (message_type, choice_type_id, choice_id) {
+                        onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
+                            console.log('onMessageChoiceSelect message_type: ', message_type);
                             console.log('onMessageChoiceSelect choice_id: ', choice_id);
                             console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
-                            console.log('onMessageChoiceSelect message_type: ', message_type);
                         },
                         onPrivacyManagerAction: function (pmData) {
                             console.log('onPrivacyManagerAction', pmData)
