@@ -35,16 +35,17 @@
                             console.log('onPrivacyManagerAction message_type', message_type);
                             console.log('onPrivacyManagerAction pmData', pmData);
                         },
-                        onMessageChoiceError: function (err) {
-                            console.log('onMessageChoiceError', err)
+                        onMessageChoiceError: function (message_type, err) {
+                            console.log('onMessageChoiceError message_type', message_type);
+                            console.log('onMessageChoiceError', err);
                         },
-                        onConsentReady: function (consentUUID, euconsent) {
-                            console.log('onConsentReady')
-                            console.log('consentUUID', consentUUID)
-                            console.log('euconsent', euconsent)
+                        onConsentReady: function (message_type, consentUUID, euconsent) {
+                            console.log('onConsentReady', message_type);
+                            console.log('consentUUID', consentUUID);
+                            console.log('euconsent', euconsent);
                         },
-                        onPMCancel: function () {
-                            console.log('onPMCancel')
+                        onPMCancel: function (message_type) {
+                            console.log('onPMCancel', message_type);
                         },
                         onMessageReceiveData: function (message_type, data) {
                             console.log('onMessageReceiveData', message_type);
@@ -54,7 +55,8 @@
                         onSPPMObjectReady: function (message_type) {
                              console.log('onSPPMObjectReady', message_type);
                         },
-                        onError: function (errorCode, errorObject, userReset){
+                        onError: function (message_type, errorCode, errorObject, userReset){
+                            console.log('errorCode: ' message_type);
                             console.log('errorCode: ' + errorCode);
                             console.log(errorObject);
                             console.log('userReset: ' + userReset);
