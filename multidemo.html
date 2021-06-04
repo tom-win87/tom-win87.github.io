@@ -23,47 +23,43 @@
                     gdpr: { },
                     propertyHref: 'https://multicampaign2.com',
                     events: {
-                        onMessageReady: function (message_type) {
-                            console.log('onMessageReady', message_type);
-                        },
-                        onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
-                            console.log('onMessageChoiceSelect message_type: ', message_type);
-                            console.log('onMessageChoiceSelect choice_id: ', choice_id);
-                            console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
-                        },
-                        onPrivacyManagerAction: function (message_type, pmData) {
-                            console.log('onPrivacyManagerAction message_type', message_type);
-                            console.log('onPrivacyManagerAction pmData', pmData);
-                        },
-                        onMessageChoiceError: function (message_type, err) {
-                            console.log('onMessageChoiceError message_type', message_type);
-                            console.log('onMessageChoiceError', err);
-                        },
-                        onConsentReady: function (message_type, consentUUID, euconsent) {
-                            console.log('onConsentReady', message_type);
-                            console.log('consentUUID', consentUUID);
-                            console.log('euconsent', euconsent);
-                        },
-                        onPMCancel: function (message_type) {
-                            console.log('onPMCancel', message_type);
-                        },
-                        onMessageReceiveData: function (message_type, data) {
-                            console.log('onMessageReceiveData', message_type);
-                            console.log('onMessageReceiveData', data)
-                            console.log(JSON.stringify(data));
-                        },
-                        onSPPMObjectReady: function (message_type) {
-                             console.log('onSPPMObjectReady', message_type);
-                        },
-                        onError: function (message_type, errorCode, errorObject, userReset){
-                            console.log('errorCode: ' message_type);
-                            console.log('errorCode: ' + errorCode);
-                            console.log(errorObject);
-                            console.log('userReset: ' + userReset);
-                        },
-                    }
-                }
-            }
+                      onMessageReady: function () {
+                          console.log('onMessageReady')
+                      },
+                      onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
+                          console.log('onMessageChoiceSelect message_type: ', message_type);
+                          console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                          console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
+                      },
+                      onPrivacyManagerAction: function (pmData) {
+                          console.log('onPrivacyManagerAction', pmData)
+                      },
+                      onMessageChoiceError: function (err) {
+                          console.log('onMessageChoiceError', err)
+                      },
+                      onConsentReady: function (consentUUID, euconsent) {
+                          console.log('onConsentReady')
+                          console.log('consentUUID', consentUUID)
+                          console.log('euconsent', euconsent)
+                      },
+                      onPMCancel: function () {
+                          console.log('onPMCancel')
+                      },
+                      onMessageReceiveData: function (data) {
+                          console.log('onMessageReceiveData', data)
+                          console.log(JSON.stringify(data));
+                      },
+                      onSPPMObjectReady: function () {
+                           console.log('onSPPMObjectReady')
+                      },
+                      onError: function (errorCode, errorObject, userReset){
+                          console.log('errorCode: ' + errorCode);
+                          console.log(errorObject);
+                          console.log('userReset: ' + userReset);
+                      },
+                  }
+              }
+          }
         </script>
         <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
         <script src="https://d3fkv551xkjrmm.cloudfront.net/js/messaging.js" async></script>
