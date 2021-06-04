@@ -23,8 +23,8 @@
                     gdpr: { },
                     propertyHref: 'https://multicampaign2.com',
                     events: {
-                      onMessageReady: function () {
-                          console.log('onMessageReady')
+                      onMessageReady: function (message_type) {
+                          console.log('onMessageReady', message_type)
                       },
                       onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
                           console.log('onMessageChoiceSelect message_type: ', message_type);
