@@ -23,16 +23,17 @@
                     gdpr: { },
                     propertyHref: 'https://multicampaign2.com',
                     events: {
-                        onMessageReady: function () {
-                            console.log('onMessageReady')
+                        onMessageReady: function (message_type) {
+                            console.log('onMessageReady message_type', message_type);
                         },
                         onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
                             console.log('onMessageChoiceSelect message_type: ', message_type);
                             console.log('onMessageChoiceSelect choice_id: ', choice_id);
                             console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
                         },
-                        onPrivacyManagerAction: function (pmData) {
-                            console.log('onPrivacyManagerAction', pmData)
+                        onPrivacyManagerAction: function (message_type, pmData) {
+                            console.log('onPrivacyManagerAction message_type', message_type);
+                            console.log('onPrivacyManagerAction pmData', pmData);
                         },
                         onMessageChoiceError: function (err) {
                             console.log('onMessageChoiceError', err)
@@ -50,8 +51,8 @@
                             console.log('onMessageReceiveData', data)
                             console.log(JSON.stringify(data));
                         },
-                        onSPPMObjectReady: function () {
-                             console.log('onSPPMObjectReady')
+                        onSPPMObjectReady: function (message_type) {
+                             console.log('onSPPMObjectReady message_type', message_type);
                         },
                         onError: function (errorCode, errorObject, userReset){
                             console.log('errorCode: ' + errorCode);
