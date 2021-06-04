@@ -50,8 +50,8 @@
                           console.log('onMessageReceiveData', data)
                           console.log(JSON.stringify(data));
                       },
-                      onSPPMObjectReady: function (message_type) {
-                           console.log('onSPPMObjectReady', message_type);
+                      onSPPMObjectReady: function () {
+                           console.log('onSPPMObjectReady')
                       },
                       onError: function (errorCode, errorObject, userReset){
                           console.log('errorCode: ' + errorCode);
