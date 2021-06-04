@@ -37,8 +37,8 @@
                       onMessageChoiceError: function (err) {
                           console.log('onMessageChoiceError', err)
                       },
-                      onConsentReady: function (consentUUID, euconsent) {
-                          console.log('onConsentReady')
+                      onConsentReady: function (message_type, consentUUID, euconsent) {
+                          console.log('onConsentReady', message_type);
                           console.log('consentUUID', consentUUID)
                           console.log('euconsent', euconsent)
                       },
