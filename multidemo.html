@@ -24,7 +24,7 @@
                     propertyHref: 'https://multicampaign2.com',
                     events: {
                         onMessageReady: function (message_type) {
-                            console.log('onMessageReady message_type', message_type);
+                            console.log('onMessageReady', message_type);
                         },
                         onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
                             console.log('onMessageChoiceSelect message_type: ', message_type);
@@ -52,7 +52,7 @@
                             console.log(JSON.stringify(data));
                         },
                         onSPPMObjectReady: function (message_type) {
-                             console.log('onSPPMObjectReady message_type', message_type);
+                             console.log('onSPPMObjectReady', message_type);
                         },
                         onError: function (errorCode, errorObject, userReset){
                             console.log('errorCode: ' + errorCode);
