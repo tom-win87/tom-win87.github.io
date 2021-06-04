@@ -45,7 +45,8 @@
                       onPMCancel: function () {
                           console.log('onPMCancel')
                       },
-                      onMessageReceiveData: function (data) {
+                      onMessageReceiveData: function (message_type, data) {
+                          console.log('onMessageReceiveData', message_type);
                           console.log('onMessageReceiveData', data)
                           console.log(JSON.stringify(data));
                       },
