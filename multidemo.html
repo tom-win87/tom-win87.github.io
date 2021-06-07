@@ -31,7 +31,8 @@
                           console.log('onMessageChoiceSelect choice_id: ', choice_id);
                           console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
                       },
-                      onPrivacyManagerAction: function (pmData) {
+                      onPrivacyManagerAction: function (message_type, pmData) {
+                          console.log('onPrivacyManagerAction message_type:', message_type);
                           console.log('onPrivacyManagerAction', pmData)
                       },
                       onMessageChoiceError: function (err) {
