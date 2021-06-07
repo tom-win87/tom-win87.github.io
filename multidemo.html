@@ -35,7 +35,8 @@
                           console.log('onPrivacyManagerAction message_type:', message_type);
                           console.log('onPrivacyManagerAction', pmData)
                       },
-                      onMessageChoiceError: function (err) {
+                      onMessageChoiceError: function (message_type, err) {
+                          console.log('onMessageChoiceError', message_type);
                           console.log('onMessageChoiceError', err)
                       },
                       onConsentReady: function (message_type, consentUUID, euconsent) {
@@ -54,7 +55,8 @@
                       onSPPMObjectReady: function () {
                            console.log('onSPPMObjectReady')
                       },
-                      onError: function (errorCode, errorObject, userReset){
+                      onError: function (message_type, errorCode, errorObject, userReset){
+                          console.log('errorCode: ' + message_type);
                           console.log('errorCode: ' + errorCode);
                           console.log(errorObject);
                           console.log('userReset: ' + userReset);
