@@ -33,10 +33,18 @@
                           console.log('onMessageChoiceSelect message_type: ', message_type);
                           console.log('onMessageChoiceSelect choice_id: ', choice_id);
                           console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
+                          if (choice_type_id == 9){
+                                document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+                                messageIimeout();
+                            }
                       },
                       onPrivacyManagerAction: function (message_type, pmData) {
                           console.log('onPrivacyManagerAction message_type:', message_type);
                           console.log('onPrivacyManagerAction', pmData)
+                          if(pmData.purposeConsent ==  "none" && pmData.vendorConsent == "none") {
+                            document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+                                messageIimeout();
+                        }
                       },
                       onMessageChoiceError: function (message_type, err) {
                           console.log('onMessageChoiceError', message_type);
@@ -66,6 +74,9 @@
                       },
                   }
               }
+          }
+          function messageIimeout() {
+            tmout = setTimeout(showMessage, 50);
           }
         </script>
         <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
