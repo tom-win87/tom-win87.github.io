@@ -19,6 +19,7 @@
                 accountId: 1584,
                 baseEndpoint: 'https://cdn.privacy-mgmt.com',
                 propertyId: 17456,
+                isSPA: true,
                 targetingParams: {
                       "cookiew": getCookie("cw")
                  },
@@ -31,14 +32,14 @@
                             console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
                             if (choice_type_id == 9){
                                     document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-                                    messageIimeout();
+                                    messagetimeout();
                                 }
                             },
                         onPrivacyManagerAction: function (pmData) {
                             console.log('onPrivacyManagerAction', pmData)
                             if(pmData.purposeConsent ==  "none" && pmData.vendorConsent == "none") {
                                 document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-                                    messageIimeout();
+                                    messagetimeout();
                             }
                         },
                         onMessageChoiceError: function (err) {
@@ -66,7 +67,7 @@
             window._sp_.executeMessaging();
         }
 
-        function messageIimeout() {
+        function messagetimeout() {
             tmout = setTimeout(showMessage, 50);
         }
         </script>
