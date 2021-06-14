@@ -20,10 +20,11 @@
                     accountId: 1584,
                     baseEndpoint: 'https://cdn.privacy-mgmt.com',
                     isSPA: true,
-                    targetingParams: {
-                        "cookiew": getCookie("cw")
-                      },
-                    gdpr: { },
+                    gdpr: {
+                      targetingParams: {
+                          "cookiew": getCookie("cw")
+                        },
+                     },
                     propertyHref: 'https://unifieddismiss.sptom.com',
                     events: {
                       onMessageReady: function (message_type) {
@@ -34,18 +35,19 @@
                           console.log('onMessageChoiceSelect choice_id: ', choice_id);
                           console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
                           if (choice_type_id == 9){
-                                document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-                                messagetimeout();
-                                window._sp_.destroyMessages();
-                            }
-                      },
+                                 window.setCookie("cw", "dismissed", 1);
+                                 /* window._sp_.config.targetingParams.message = 'messagingwall';*/
+                                  messageIimeout();
+                              }
+                          },
                       onPrivacyManagerAction: function (message_type, pmData) {
                           console.log('onPrivacyManagerAction message_type:', message_type);
                           console.log('onPrivacyManagerAction', pmData)
                           if(pmData.purposeConsent ==  "none" && pmData.vendorConsent == "none") {
-                            document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-                                messagetimeout();
-                        }
+                              document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+                              window._sp_.config.targetingParams.message = 'messagingwall';
+                                  messageIimeout();
+                          }
                       },
                       onMessageChoiceError: function (message_type, err) {
                           console.log('onMessageChoiceError', message_type);
