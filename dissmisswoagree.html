@@ -76,15 +76,19 @@
                   }
               }
           }
+          function showMessage(){
+              window._sp_.executeMessaging();
+          }
+
           function messagetimeout() {
             tmout = setTimeout(showMessage, 50);
           }
         </script>
         <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
     </head>
-    <body>
+<body onload="showMessage()">
 <h1>GDPR TCF v2 on unified script</h1>
-<a onclick="window._sp_.executeMessaging();" href="javascript:void(0);">GDPR Messaging experience</a>
+<a onclick="window._sp_.gdpr.loadPrivacyManagerModal(507877);" href="javascript:void(0);">GDPR Messaging experience</a>
 <span style="position: absolute; bottom: 0pt; left: 0pt;"></span><br>
 
     </body>
