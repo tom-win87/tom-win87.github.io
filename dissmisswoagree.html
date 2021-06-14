@@ -37,6 +37,7 @@
                           if (choice_type_id == 9){
                                 document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
                                 messagetimeout();
+                                window._sp_.destroyMessages();
                             }
                       },
                       onPrivacyManagerAction: function (message_type, pmData) {
