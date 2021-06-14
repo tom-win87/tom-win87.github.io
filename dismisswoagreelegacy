@@ -1,68 +1,79 @@
-<script type="text/javascript">
-        !function () { var e = function () { var e, t = "__tcfapiLocator", a = [], n = window; for (; n;) { try { if (n.frames[t]) { e = n; break } } catch (e) { } if (n === window.top) break; n = n.parent } e || (!function e() { var a = n.document, r = !!n.frames[t]; if (!r) if (a.body) { var i = a.createElement("iframe"); i.style.cssText = "display:none", i.name = t, a.body.appendChild(i) } else setTimeout(e, 5); return !r }(), n.__tcfapi = function () { for (var e, t = arguments.length, n = new Array(t), r = 0; r < t; r++)n[r] = arguments[r]; if (!n.length) return a; if ("setGdprApplies" === n[0]) n.length > 3 && 2 === parseInt(n[1], 10) && "boolean" == typeof n[3] && (e = n[3], "function" == typeof n[2] && n[2]("set", !0)); else if ("ping" === n[0]) { var i = { gdprApplies: e, cmpLoaded: !1, cmpStatus: "stub" }; "function" == typeof n[2] && n[2](i) } else a.push(n) }, n.addEventListener("message", (function (e) { var t = "string" == typeof e.data, a = {}; try { a = t ? JSON.parse(e.data) : e.data } catch (e) { } var n = a.__tcfapiCall; n && window.__tcfapi(n.command, n.version, (function (a, r) { var i = { __tcfapiReturn: { returnValue: a, success: r, callId: n.callId } }; t && (i = JSON.stringify(i)), e.source.postMessage(i, "*") }), n.parameter) }), !1)) }; "undefined" != typeof module ? module.exports = e : e() }();
-    </script>
-    <script>
-    x = 1;
-    //function to read cookie and split name/value
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dismiss without agreeing</title>
+    <script type="text/javascript">
+            !function () { var e = function () { var e, t = "__tcfapiLocator", a = [], n = window; for (; n;) { try { if (n.frames[t]) { e = n; break } } catch (e) { } if (n === window.top) break; n = n.parent } e || (!function e() { var a = n.document, r = !!n.frames[t]; if (!r) if (a.body) { var i = a.createElement("iframe"); i.style.cssText = "display:none", i.name = t, a.body.appendChild(i) } else setTimeout(e, 5); return !r }(), n.__tcfapi = function () { for (var e, t = arguments.length, n = new Array(t), r = 0; r < t; r++)n[r] = arguments[r]; if (!n.length) return a; if ("setGdprApplies" === n[0]) n.length > 3 && 2 === parseInt(n[1], 10) && "boolean" == typeof n[3] && (e = n[3], "function" == typeof n[2] && n[2]("set", !0)); else if ("ping" === n[0]) { var i = { gdprApplies: e, cmpLoaded: !1, cmpStatus: "stub" }; "function" == typeof n[2] && n[2](i) } else a.push(n) }, n.addEventListener("message", (function (e) { var t = "string" == typeof e.data, a = {}; try { a = t ? JSON.parse(e.data) : e.data } catch (e) { } var n = a.__tcfapiCall; n && window.__tcfapi(n.command, n.version, (function (a, r) { var i = { __tcfapiReturn: { returnValue: a, success: r, callId: n.callId } }; t && (i = JSON.stringify(i)), e.source.postMessage(i, "*") }), n.parameter) }), !1)) }; "undefined" != typeof module ? module.exports = e : e() }();
+        </script>
+        <script>
+        x = 1;
+        //function to read cookie and split name/value
+        function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+        }
 
-    window._sp_ = {
-        config: {
-            accountId: 1584,
-            baseEndpoint: 'https://cdn.privacy-mgmt.com',
-            targetingParams: {
-                  "cookiew": getCookie("cw")
-             },
-             events: {
-                    onMessageReady: function () {
-                        console.log('onMessageReady')
-                     },
-                    onMessageChoiceSelect: function (choice_id, choice_type_id) {
-                        console.log('onMessageChoiceSelect choice_id: ', choice_id);
-                        console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
-                        if (choice_type_id == 9){
+        window._sp_ = {
+            config: {
+                accountId: 1584,
+                baseEndpoint: 'https://cdn.privacy-mgmt.com',
+                propertyId: 17456,
+                targetingParams: {
+                      "cookiew": getCookie("cw")
+                 },
+                 events: {
+                        onMessageReady: function () {
+                            console.log('onMessageReady')
+                         },
+                        onMessageChoiceSelect: function (choice_id, choice_type_id) {
+                            console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                            console.log('onMessageChoiceSelect choice_id: ', choice_type_id);
+                            if (choice_type_id == 9){
+                                    document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
+                                    messageIimeout();
+                                }
+                            },
+                        onPrivacyManagerAction: function (pmData) {
+                            console.log('onPrivacyManagerAction', pmData)
+                            if(pmData.purposeConsent ==  "none" && pmData.vendorConsent == "none") {
                                 document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-                                messageIimeout();
+                                    messageIimeout();
                             }
                         },
-                    onPrivacyManagerAction: function (pmData) {
-                        console.log('onPrivacyManagerAction', pmData)
-                        if(pmData.purposeConsent ==  "none" && pmData.vendorConsent == "none") {
-                            document.cookie = "cw=dismissed; expires=Thu, 18 Dec 2030 12:00:00 UTC";
-                                messageIimeout();
-                        }
-                    },
-                    onMessageChoiceError: function (err) {
-                        console.log('onMessageChoiceError', err)
-                    },
-                    onConsentReady: function (consentUUID, euconsent) {
-                        console.log('onConsentReady')
-                        console.log('consentUUID', consentUUID)
-                        console.log('euconsent', euconsent)
-                    },
-                    onPMCancel: function () {
-                        console.log('onPMCancel')
-                    },
-                    onMessageReceiveData: function (data) {
-                        console.log('onMessageReceiveData', data)
-                        console.log(JSON.stringify(data));
-                    },
-                    onSPPMObjectReady: function () {
-                        console.log('onSPPMObjectReady')
-                     }
-                }
+                        onMessageChoiceError: function (err) {
+                            console.log('onMessageChoiceError', err)
+                        },
+                        onConsentReady: function (consentUUID, euconsent) {
+                            console.log('onConsentReady')
+                            console.log('consentUUID', consentUUID)
+                            console.log('euconsent', euconsent)
+                        },
+                        onPMCancel: function () {
+                            console.log('onPMCancel')
+                        },
+                        onMessageReceiveData: function (data) {
+                            console.log('onMessageReceiveData', data)
+                            console.log(JSON.stringify(data));
+                        },
+                        onSPPMObjectReady: function () {
+                            console.log('onSPPMObjectReady')
+                         }
+                    }
+            }
         }
-    }
-    function showMessage(){
-        window._sp_.executeMessaging();
-    }
+        function showMessage(){
+            window._sp_.executeMessaging();
+        }
 
-    function messageIimeout() {
-        tmout = setTimeout(showMessage, 50);
-    }
-    </script>
-    <script src="https://cdn.privacy-mgmt.com/wrapperMessagingWithoutDetection.js"></script>
+        function messageIimeout() {
+            tmout = setTimeout(showMessage, 50);
+        }
+        </script>
+        <script src="https://cdn.privacy-mgmt.com/wrapperMessagingWithoutDetection.js"></script>
+
+</head>
+<body>
+<p>Dismiss Without AgreeingGDPR TCF v2 Legacy</p>
+</body>
+</html>
