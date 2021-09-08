@@ -64,6 +64,28 @@
           }
         </script>
         <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
+
+        <script type="text/javascript">
+    function showPrivacyManager(sp_gdpr){
+        if(sp_gdpr){
+            document.getElementById("gdpr_link").style.display="inline-block";
+        }
+    }
+    window.__tcfapi('addEventListener', 2, function (tcData, success) {
+        console.log("tcData.gdprApplies: " + tcData.gdprApplies);
+        if (success) {
+            if (tcData.eventStatus === 'tcloaded'||tcData.eventStatus === 'cmpuishown') {
+                console.log(tcData.publisherCC);
+                showPrivacyManager(tcData.gdprApplies) // triggers 2x
+                window.__tcfapi('removeEventListener', 2, function (success) {
+                    if(success) {
+                        console.log('removed: '+tcData.listenerId); // triggers 1x
+                    }
+                }, tcData.listenerId);
+            }
+        }
+    });
+</script>
     </head>
     <body>
 <h1>Multicampaign Demo TCFv2 TESTING gdprAppliesFlag</h1>
