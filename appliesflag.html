@@ -16,14 +16,10 @@
                 config: {
                     accountId: 1584,
                     baseEndpoint: 'https://cdn.privacy-mgmt.com',
-                    ccpa: { },
-                    detection: {
-                        baseEndpoint: 'https://d3fkv551xkjrmm.cloudfront.net/'
-                    },
                     gdpr: {
                       consentLanguage: "en"
                     },
-                    propertyHref: 'https://multicampaign2.com',
+                    propertyHref: 'https://gdprapplies.com',
                     events: {
                       onMessageReady: function (message_type) {
                           console.log('onMessageReady', message_type)
@@ -68,13 +64,10 @@
           }
         </script>
         <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
-        <script src="https://d3fkv551xkjrmm.cloudfront.net/js/messaging.js" async></script>
     </head>
     <body>
-<h1>Multicampaign Demo Tom TCFv2, CCPA, and AAB. TESTING gdprAppliesFlag</h1>
-<p>CCPA Test</p>
-<button id="ccpa_link" style="display:none" onclick="window._sp_.ccpa.loadPrivacyManagerModal(493170)">CCPA PM</button>
+<h1>Multicampaign Demo TCFv2 TESTING gdprAppliesFlag</h1>
 <p>GDPR Test</p>
-<button id="gdpr_link" style="display:none" onclick="window._sp_.gdpr.loadPrivacyManagerModal(493165)">GDPR PM</button>
+<button id="gdpr_link" style="display:inline-block" onclick="window._sp_.gdpr.loadPrivacyManagerModal(548057)">GDPR PM</button>
     </body>
 </html>
