@@ -82,6 +82,11 @@
                 }, tcData.listenerId);
             }
         }
+    window.__uspapi('getCustomVendorRejects',1,function(uspData,success){
+        console.log("uspData: "+uspData);
+        if(uspData.ccpaApplies){
+            document.getElementById("ccpa_link").style.display = "block";
+        }    
     });
 </script>
     </head>
@@ -90,7 +95,7 @@
 <p>GDPR Test</p>
 <button id="gdpr_link" style="display:none" onclick="window._sp_.gdpr.loadPrivacyManagerModal(549835)">GDPR PM</button>
 <p>CCPA Test</p>
-<button id="ccpa_link" style="display:inline-block" onclick="window._sp_.ccpa.loadPrivacyManagerModal(549833)">CCPA PM</button>
+<button id="ccpa_link" style="display:none" onclick="window._sp_.ccpa.loadPrivacyManagerModal(549833)">CCPA PM</button>
     </body>
 
 </html>
