@@ -1,0 +1,51 @@
+<!doctype html>
+   <html amp lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Simple AMP implementation</title>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+      <!-- required for the amp-consent component -->
+      <script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script>
+      <!-- required to sync auth_id with publishers domain and Google.com domain -->
+      <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+   </head>
+   <body>
+      <h1>Simple AMP code example - Sourcepoint</h1>
+      <amp-analytics>
+         <script type=application/json>
+            {
+               "linkers":{"authId":{"ids":{"_a":"CLIENT_ID(AMP-CONSENT)"},"enabled":true,"proxyOnly":false}},"cookies":{"enabled":true,"authId":{"value":"LINKER_PARAM(authId, _a)"}}
+            }
+         </script>
+      </amp-analytics>
+      <amp-consent id="consent" layout="nodisplay">
+         <script type="application/json">
+            {
+               "consentInstanceId": "Sourcepoint",
+               "consentRequired": "remote",
+               "checkConsentHref": "https://sp-cdn.sp-demo.com/wrapper/tcfv2/v1/amp-v2?authId=CLIENT_ID",
+               "promptUISrc": "https://sp-cdn.sp-demo.com/amp/index.html?authId=CLIENT_ID",
+               "mmsDomain": "https://sp-cdn.sp-demo.com",
+               "postPromptUI": "consent-ui",
+               "cookies": {
+                  "enabled": true,
+                  "AMP-CONSENT": {    "value": "LINKER_PARAM(authId, _a)" }
+               },
+               "clientConfig": {
+                  "accountId": 1732,
+                  "propertyHref": "https://amp.newscriptdemo.com",
+                  "propertyId": 19118,
+                  "privacyManagerId": 547514,
+                  "isTCFV2": true,
+                  "pmTab": "purposes",
+                  "stageCampaign": false,
+                  "targetingParams": {    "color": "red"  }
+               }
+            }
+         </script>
+      </amp-consent>
+      <div id="consent-ui">
+         <button on="tap:consent.prompt(consent=SourcePoint)">Privacy Settings</button>
+      </div>
+   </body>
+</html>
