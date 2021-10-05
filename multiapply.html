@@ -54,10 +54,10 @@
           }
           </script>
           <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
-        
+
           <script type="text/javascript">
             window.__uspapi('getCustomVendorRejects',1,function(uspData,success){
-                    console.log("uspData: "+uspData);
+                    console.log("uspData: " + uspData);
                     if(uspData.ccpaApplies){
                         document.getElementById("ccpa_link").style.display = "block";
                     }
