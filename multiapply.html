@@ -56,12 +56,11 @@
           <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
 
           <script type="text/javascript">
-            window.__uspapi('getCustomVendorRejects',1,function(uspData,success){
-                    console.log("uspData: " + uspData.ccpaApplies);
-                    if(uspData.ccpaApplies){
-                        document.getElementById("ccpa_link").style.display = "block";
-                    }
-                });
+              __uspapi('getUSPData',1,function(uspData,success){console.log('uspData: ' + JSON.stringify(uspData)+ 'success: ' + success);
+                  if(JSON.stringify(uspData).indexOf("---")===-1){
+                      document.getElementById("ccpa_link").style.display = "block";
+                  }
+              });
           </script>
     </head>
     <body>
