@@ -2,7 +2,7 @@
 
 iOS delegate methods are triggered in response to certain events for example, when a message is ready to be displayed or the end-user opens the privacy manager.
 
-The iOS implementation of Sourcepoint's CMP has five event callbacks:
+The iOS implementation of Sourcepoint's CMP has five event callbacks: 
 
 - [`onSPUIReady(_ controller: UIViewController)`](#onSPUIReady)
 - [`onAction(_ action: SPAction, from controller: UIViewController)`](#onAction)
