@@ -9,7 +9,7 @@ The iOS implementation of Sourcepoint's CMP has five event callbacks:
 - [`onSPUIFinished()`](##onSPUIFinished())
 - [`onConsentReady()`](##`onConsentReady`)
 - [`onError()`](# onError())
-- [test()](#test())
+- [test()](<#test()>)
 
 This article describes the purpose and action for each of these functions.
 
