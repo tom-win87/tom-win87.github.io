@@ -6,7 +6,7 @@ The iOS implementation of Sourcepoint's CMP has five event callbacks:
 
 - [`onSPUIReady(_ controller: UIViewController)`](#onSPUIReady)
 - [`onAction(_ action: SPAction, from controller: UIViewController)`](#onAction)
-- [`onSPUIFinished()`](#onSPUIFinished())
+- [`onSPUIFinished()`](##onSPUIFinished())
 - [`onConsentReady()`](# onConsentReady())
 - [`onError()`](# onError())
 
