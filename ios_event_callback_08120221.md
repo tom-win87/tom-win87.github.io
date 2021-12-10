@@ -57,3 +57,5 @@ The SDK will in all cases wrap the error in one of the SPError class and eventua
 This was implemented on purpose to be the most safe possible. Since there are no consent data, vendors should refrain from performing logic that depends on it.
 
 This behaviour can be opted-out by setting the flag `consentManager.cleanUserDataOnError` to false, after you initialise `SPConsentManager`.
+
+## test
