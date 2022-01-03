@@ -20,32 +20,43 @@
                 gdpr: { },
                 propertyHref: 'https://aandgdemo.com',
                 events: {
-                    onMessageChoiceSelect: function() {
-                        console.log('[event] onMessageChoiceSelect', arguments);
-                    },
-                    onMessageReady: function() {
-                        console.log('[event] onMessageReady', arguments);
-                    },
-                    onMessageChoiceError: function() {
-                        console.log('[event] onMessageChoiceError', arguments);
-                    },
-                    onPrivacyManagerAction: function() {
-                        console.log('[event] onPrivacyManagerAction', arguments);
-                    },
-                    onPMCancel: function() {
-                        console.log('[event] onPMCancel', arguments);
-                    },
-                    onMessageReceiveData: function() {
-                        console.log('[event] onMessageReceiveData', arguments);
-                    },
-                    onSPPMObjectReady: function() {
-                        console.log('[event] onSPPMObjectReady', arguments);
-                    },
-                    onConsentReady: function (consentUUID, euconsent) {
-                        console.log('[event] onConsentReady', arguments);
-                    },
-                    onError: function() {
-                        console.log('[event] onError', arguments);
+                      onMessageReady: function (message_type) {
+                          console.log('onMessageReady', message_type)
+                      },
+                      onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
+                          console.log('onMessageChoiceSelect message_type: ', message_type);
+                          console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                          console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
+                      },
+                      onPrivacyManagerAction: function (message_type, pmData) {
+                          console.log('onPrivacyManagerAction message_type:', message_type);
+                          console.log('onPrivacyManagerAction', pmData)
+                      },
+                      onMessageChoiceError: function (message_type, err) {
+                          console.log('onMessageChoiceError', message_type);
+                          console.log('onMessageChoiceError', err)
+                      },
+                      onConsentReady: function (message_type, consentUUID, euconsent) {
+                          console.log('onConsentReady', message_type);
+                          console.log('consentUUID', consentUUID)
+                          console.log('euconsent', euconsent)
+                      },
+                      onPMCancel: function (message_type) {
+                          console.log('onPMCancel', message_type)
+                      },
+                      onMessageReceiveData: function (message_type, data) {
+                          console.log('onMessageReceiveData', message_type);
+                          console.log('onMessageReceiveData', data)
+                          console.log(JSON.stringify(data));
+                      },
+                      onSPPMObjectReady: function () {
+                           console.log('onSPPMObjectReady')
+                      },
+                      onError: function (message_type, errorCode, errorObject, userReset){
+                          console.log('errorCode: ', message_type);
+                          console.log('errorCode: ' + errorCode);
+                          console.log(errorObject);
+                          console.log('userReset: ' + userReset);
                     },
                 }
             }
