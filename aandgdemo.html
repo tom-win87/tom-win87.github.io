@@ -9,54 +9,49 @@
       <script>(function () { var e = false; var c = window; var t = document; function r() { if (!c.frames["__uspapiLocator"]) { if (t.body) { var a = t.body; var e = t.createElement("iframe"); e.style.cssText = "display:none"; e.name = "__uspapiLocator"; a.appendChild(e) } else { setTimeout(r, 5) } } } r(); function p() { var a = arguments; __uspapi.a = __uspapi.a || []; if (!a.length) { return __uspapi.a } else if (a[0] === "ping") { a[2]({ gdprAppliesGlobally: e, cmpLoaded: false }, true) } else { __uspapi.a.push([].slice.apply(a)) } } function l(t) { var r = typeof t.data === "string"; try { var a = r ? JSON.parse(t.data) : t.data; if (a.__cmpCall) { var n = a.__cmpCall; c.__uspapi(n.command, n.parameter, function (a, e) { var c = { __cmpReturn: { returnValue: a, success: e, callId: n.callId } }; t.source.postMessage(r ? JSON.stringify(c) : c, "*") }) } } catch (a) { } } if (typeof __uspapi !== "function") { c.__uspapi = p; __uspapi.msgHandler = l; c.addEventListener("message", l, false) } })();
       </script>
 
-          <script>
-          window._sp_queue = [];
-          window._sp_ = {
-              config: {
-                  accountId: 1584,
-                  baseEndpoint: 'https://cdn.privacy-mgmt.com',
-                  propertyHref: 'https://aandgdemo.com',
-                  ccpa: { },
-
-
-                  gdpr: { },
-                  events: {
-                      onMessageChoiceSelect: function() {
-                          console.log('[event] onMessageChoiceSelect', arguments);
-                      },
-                      onMessageReady: function() {
-                          console.log('[event] onMessageReady', arguments);
-                      },
-                      onMessageChoiceError: function() {
-                          console.log('[event] onMessageChoiceError', arguments);
-                      },
-                      onPrivacyManagerAction: function() {
-                          console.log('[event] onPrivacyManagerAction', arguments);
-                      },
-                      onPMCancel: function() {
-                          console.log('[event] onPMCancel', arguments);
-                      },
-                      onMessageReceiveData: function() {
-                          console.log('[event] onMessageReceiveData', arguments);
-                      },
-                      onSPPMObjectReady: function() {
-                          console.log('[event] onSPPMObjectReady', arguments);
-                      },
-                      onConsentReady: function (consentUUID, euconsent) {
-                          console.log('[event] onConsentReady', arguments);
-                      },
-                      onError: function() {
-                          console.log('[event] onError', arguments);
-                      },
-                  }
-              }
-          }
-          </script>
-          <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
-
+      <script>
+        window._sp_queue = [];
+        window._sp_ = {
+            config: {
+                accountId: 1584,
+                baseEndpoint: 'https://cdn.privacy-mgmt.com',
+                ccpa: { },
+                gdpr: { },
+                propertyHref: 'https://aandgdemo.com',
+                events: {
+                    onMessageChoiceSelect: function() {
+                        console.log('[event] onMessageChoiceSelect', arguments);
+                    },
+                    onMessageReady: function() {
+                        console.log('[event] onMessageReady', arguments);
+                    },
+                    onMessageChoiceError: function() {
+                        console.log('[event] onMessageChoiceError', arguments);
+                    },
+                    onPrivacyManagerAction: function() {
+                        console.log('[event] onPrivacyManagerAction', arguments);
+                    },
+                    onPMCancel: function() {
+                        console.log('[event] onPMCancel', arguments);
+                    },
+                    onMessageReceiveData: function() {
+                        console.log('[event] onMessageReceiveData', arguments);
+                    },
+                    onSPPMObjectReady: function() {
+                        console.log('[event] onSPPMObjectReady', arguments);
+                    },
+                    onConsentReady: function (consentUUID, euconsent) {
+                        console.log('[event] onConsentReady', arguments);
+                    },
+                    onError: function() {
+                        console.log('[event] onError', arguments);
+                    },
+                }
+            }
+        }
+        </script>
+        <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
   </head>
-
-
   <body>
       <h1>Multicampaign Demo Tom TCF and CCPA</h1>
       <p>CCPA Test</p>
@@ -66,5 +61,4 @@
       <a onclick="javascript:window._sp_.gdpr.loadPrivacyManagerModal(574093);">GDPR PM</a>
       <span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
   </body>
-
 </html>
