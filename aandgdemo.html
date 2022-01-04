@@ -11,66 +11,69 @@
       </script>
 
       <script>
-        window._sp_queue = [];
-        window._sp_ = {
-            config: {
-                accountId: 1584,
-                baseEndpoint: 'https://cdn.privacy-mgmt.com',
-                ccpa: { },
-                gdpr: { },
-                propertyHref: 'https://aandgdemo.com',
-                events: {
-                      onMessageReady: function (message_type) {
-                          console.log('onMessageReady', message_type)
-                      },
-                      onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
-                          console.log('onMessageChoiceSelect message_type: ', message_type);
-                          console.log('onMessageChoiceSelect choice_id: ', choice_id);
-                          console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
-                      },
-                      onPrivacyManagerAction: function (message_type, pmData) {
-                          console.log('onPrivacyManagerAction message_type:', message_type);
-                          console.log('onPrivacyManagerAction', pmData)
-                      },
-                      onMessageChoiceError: function (message_type, err) {
-                          console.log('onMessageChoiceError', message_type);
-                          console.log('onMessageChoiceError', err)
-                      },
-                      onConsentReady: function (message_type, consentUUID, euconsent) {
-                          console.log('onConsentReady', message_type);
-                          console.log('consentUUID', consentUUID)
-                          console.log('euconsent', euconsent)
-                      },
-                      onPMCancel: function (message_type) {
-                          console.log('onPMCancel', message_type)
-                      },
-                      onMessageReceiveData: function (message_type, data) {
-                          console.log('onMessageReceiveData', message_type);
-                          console.log('onMessageReceiveData', data)
-                          console.log(JSON.stringify(data));
-                      },
-                      onSPPMObjectReady: function () {
-                           console.log('onSPPMObjectReady')
-                      },
-                      onError: function (message_type, errorCode, errorObject, userReset){
-                          console.log('errorCode: ', message_type);
-                          console.log('errorCode: ' + errorCode);
-                          console.log(errorObject);
-                          console.log('userReset: ' + userReset);
-                      },
-                  }
-              }
-          }
-        </script>
-        <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
+          window._sp_queue = [];
+          window._sp_ = {
+              config: {
+                  accountId: 1584,
+                  baseEndpoint: 'https://cdn.privacy-mgmt.com',
+                  ccpa: { },
+                  detection: {
+                      baseEndpoint: 'https://d3fkv551xkjrmm.cloudfront.net/'
+                  },
+                  gdpr: {
+                    consentLanguage: "en"
+                  },
+                  propertyHref: 'https://multicampaign2.com',
+                  events: {
+                    onMessageReady: function (message_type) {
+                        console.log('onMessageReady', message_type)
+                    },
+                    onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
+                        console.log('onMessageChoiceSelect message_type: ', message_type);
+                        console.log('onMessageChoiceSelect choice_id: ', choice_id);
+                        console.log('onMessageChoiceSelect choice_type_id: ', choice_type_id);
+                    },
+                    onPrivacyManagerAction: function (message_type, pmData) {
+                        console.log('onPrivacyManagerAction message_type:', message_type);
+                        console.log('onPrivacyManagerAction', pmData)
+                    },
+                    onMessageChoiceError: function (message_type, err) {
+                        console.log('onMessageChoiceError', message_type);
+                        console.log('onMessageChoiceError', err)
+                    },
+                    onConsentReady: function (message_type, consentUUID, euconsent) {
+                        console.log('onConsentReady', message_type);
+                        console.log('consentUUID', consentUUID)
+                        console.log('euconsent', euconsent)
+                    },
+                    onPMCancel: function (message_type) {
+                        console.log('onPMCancel', message_type)
+                    },
+                    onMessageReceiveData: function (message_type, data) {
+                        console.log('onMessageReceiveData', message_type);
+                        console.log('onMessageReceiveData', data)
+                        console.log(JSON.stringify(data));
+                    },
+                    onSPPMObjectReady: function () {
+                         console.log('onSPPMObjectReady')
+                    },
+                    onError: function (message_type, errorCode, errorObject, userReset){
+                        console.log('errorCode: ', message_type);
+                        console.log('errorCode: ' + errorCode);
+                        console.log(errorObject);
+                        console.log('userReset: ' + userReset);
+                    },
+                }
+            }
+        }
+      </script>
+      <script src="https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js" async></script>
+      <script src="https://d3fkv551xkjrmm.cloudfront.net/js/messaging.js" async></script>
   </head>
   <body>
-      <h1>Multicampaign Demo Tom TCF and CCPA</h1>
-      <p>CCPA Test</p>
-      <a onclick="window._sp_.ccpa.loadPrivacyManagerModal(574097);" href="javascript:void(0);">CCPA PM</a>
-      <span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
-      <p>GDPR Test</p>
-      <a onclick="javascript:window._sp_.gdpr.loadPrivacyManagerModal(574093);">GDPR PM</a>
-      <span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
+<h1>Multicampaign Demo Tom TCFv2</h1>
+<p>GDPR Test</p>
+<a onclick="window._sp_.gdpr.loadPrivacyManagerModal(493165, 'purposes');" href="javascript:void(0);">GDPR PM purposes</a>
+<span style="position: absolute; bottom: 0pt; left: 0pt;"></span>
   </body>
 </html>
