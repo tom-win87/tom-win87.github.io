@@ -1,0 +1,90 @@
+<!doctype html>
+<html amp lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Hello, AMPs</title>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+      <!-- required for the amp-consent component -->
+      <script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script>
+      <!-- required for geo-targeting -->
+      <script async custom-element="amp-geo" src="https://cdn.ampproject.org/v0/amp-geo-0.1.js"></script>
+      <!-- required to sync auth_id with publishers domain and Google.com domain --> <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+      <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+   </head>
+   <body>
+      <h1>Welcome to the mobile web CCPA TCF</h1>
+      <amp-analytics type="googleanalytics">
+         <script type=application/json>
+            {
+               "linkers":{"authId":{"ids":{"_a":"CLIENT_ID(AMP-CONSENT)"},"enabled":true,"proxyOnly":false}},"cookies":{"enabled":true,"authId":{"value":"LINKER_PARAM(authId, _a)"}}
+            }
+         </script>
+      </amp-analytics>
+      <amp-geo layout="nodisplay">
+         <script type="application/json">
+            {
+               "ISOCountryGroups": {
+                 "eea": ["preset-eea", "unknown"],
+                 "ccpa": ["preset-us-ca"]
+               }
+            }
+         </script>
+      </amp-geo>
+      <amp-consent id='consent' layout='nodisplay' type='SourcePoint'>
+         <script type="application/json">
+            {
+               "consentInstanceId": "Sourcepoint",
+               "geoOverride": {
+                  "ccpa": {
+                     "consentRequired": "remote",
+                     "checkConsentHref": "https://sp-cdn.sp-demo.com/ccpa/consent/amp",
+                     "promptUISrc": "https://sp-cdn.sp-demo.com/amp/index.html?authId=CLIENT_ID",
+                     "postPromptUI": "ccpa-consent-ui",
+                     "uiConfig": {"overlay":true},
+                     "clientConfig": {
+                        "accountId": 1732,
+                        "siteHref": "https://amp.newscriptdemo.com",
+                        "siteId": 19118,
+                        "isCCPA": true,
+                        "stageCampaign": false,
+                        "privacyManagerId": "613a397d7bb7502c6f4548e5",
+                        "getDnsMsgMms": true,
+                        "alwaysDisplayDns": false,
+                        "showNoticeUntilAction": true,
+                        "targetingParams": {    "color": "blue"  }
+                     }
+                  },
+                  "eea": {
+                     "consentRequired": "remote",
+                     "checkConsentHref": "https://sp-cdn.sp-demo.com/wrapper/tcfv2/v1/amp-v2?authId=CLIENT_ID",
+                     "promptUISrc": "https://sp-cdn.sp-demo.com/amp/index.html?authId=CLIENT_ID",
+                     "mmsDomain": "https://sp-cdn.sp-demo.com",
+                     "postPromptUI": "eea-consent-ui",
+                     "uiConfig": {"overlay":true},
+                     "cookies": {
+                        "enabled": true,
+                        "AMP-CONSENT": {    "value": "LINKER_PARAM(authId, _a)" }
+                     },
+                     "clientConfig": {
+                        "accountId": 1732,
+                        "propertyHref": "https://amp.newscriptdemo.com",
+                        "propertyId": 19118,
+                        "privacyManagerId": 547514,
+                        "isTCFV2": true,
+                        "pmTab": "purposes",
+                        "stageCampaign": false,
+                        "targetingParams": {    "color": "red"  }
+                     }
+                  }
+               }
+            }
+         </script>
+      </amp-consent>
+      <div id="ccpa-consent-ui">
+         <button on="tap:consent.prompt(consent=SourcePoint)">Do Not Sell My Info</button>
+      </div>
+      <div id="eea-consent-ui">
+         <button on="tap:consent.prompt(consent=SourcePoint)">Privacy Settings</button>
+      </div>
+   </body>
+</html>
