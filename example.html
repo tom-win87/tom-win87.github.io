@@ -1,0 +1,26 @@
+<amp-consent id="consent" layout="nodisplay">
+   <script type="application/json">
+      {
+         "consentInstanceId": "Sourcepoint",
+         "consentRequired": "remote",
+         "checkConsentHref": "https://{CNAME DOMAIN}/wrapper/tcfv2/v1/amp-v2?authId=CLIENT_ID",
+         "promptUISrc": "https://{CNAME DOMAIN}/amp/index.html?authId=CLIENT_ID",
+         "mmsDomain": "https://{CNAME DOMAIN}",
+         "postPromptUI": "consent-ui",
+         "cookies": {
+            "enabled": true,
+            "AMP-CONSENT": {    "value": "LINKER_PARAM(authId, _a)" }
+         },
+         "clientConfig": {
+            "accountId": {__SP_ACCOUNT_ID__},
+            "propertyHref": {__SP_PROPERTY_HREF__},
+            "propertyId": {__SP_PROPERTY_ID__},
+            "privacyManagerId": {__SP_PRIVACY_MANAGER_ID__},
+            "isTCFV2": true,
+            "pmTab": "purposes",
+            "stageCampaign": false,
+            "targetingParams": {    "{__KEY__}": "{__VALUE__}"  }
+         }
+      }
+   </script>
+</amp-consent>
