@@ -123,7 +123,14 @@
         }
         </script>
         <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
-            
+            <script>
+        function usapi_callback(uspData, success) {
+          // your custom callback code can be included here
+          console.log(uspData, ' + ', success);
+       }
+       
+       __uspapi('getUSPData', 1 , usapi_callback); 
+       </script>
   </head>
 
   <body>
