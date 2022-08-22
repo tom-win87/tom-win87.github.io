@@ -14,6 +14,7 @@
             baseEndpoint: 'https://cdn.privacy-mgmt.com',
             propertyHref: 'https://authid.com',
             gdpr: { },
+            authId: "123123123",
             events: {
                 onMessageChoiceSelect: function() {
                     console.log('[event] onMessageChoiceSelect', arguments);
@@ -45,7 +46,6 @@
             }
         }
     }
-     document.cookie = "authId=123123123; max-age=" + 30 * 24 * 60 * 60;;
     </script>
     <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
     
