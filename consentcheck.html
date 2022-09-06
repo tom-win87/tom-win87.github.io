@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <title>Localhost Sourcepoint Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    .box {
+      margin: 20px;
+      padding: 5px;
+      border: 5px solid;
+      background-color: #b5b3f2;
+    }
+    .code {
+      background-color: #dae4eb;
+      margin: 20px;
+      padding: 5px;
+    }
+  </style>
+  <head> </head>
+  <body>
+    <h1>SOURCEPOINT RETRIEVE END-USER CONSENT CHECKER</h1>
+    <p></p>
+    <div class="box">
+      <h3>Check for consent history data using <code>consentUUID</code></h3>
+      <label for="fname">Property ID:</label>
+      <input type="text" class="propId0" name="propId0" /><br /><br />
+      <label for="lname">consentUUID:</label>
+      <input type="text" class="consentUUID" name="consentUUID" /><br /><br />
+      <button class="check0">Check!</button>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="box">
+      <h3>Check for consent history data using <code>authId</code></h3>
+      <label for="fname">Property ID:</label>
+      <input type="text" class="propId1" name="propId1" /><br /><br />
+      <label for="lname">authId:</label>
+      <input type="text" class="authId" name="authId" /><br /><br />
+      <button class="check1">Check!</button>
+    </div>
+    <pre class="code"></pre>
+    <script>
+      //for uuid
+      document.querySelector(".check0").addEventListener("click", function () {
+        const consentUUID = document.querySelector(".consentUUID").value;
+        const propertyId0 = document.querySelector(".propId0").value;
+        const checker0 =
+          fetch(`https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/${propertyId0}?consentUUID=${consentUUID}
+    `)
+            .then((response) => response.json())
+            .then(
+              (data) =>
+                (document.querySelector(".code").textContent = JSON.stringify(
+                  data,
+                  null,
+                  2
+                ))
+            );
+      });
+
+      //for authid
+      document.querySelector(".check1").addEventListener("click", function () {
+        const authId = document.querySelector(".authId").value;
+        const propertyId1 = document.querySelector(".propId1").value;
+        const checker1 =
+          fetch(`https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/${propertyId1}?authId=${authId}
+      `)
+            .then((response) => response.json())
+            .then(
+              (data) =>
+                (document.querySelector(".code").textContent = JSON.stringify(
+                  data,
+                  null,
+                  2
+                ))
+            );
+      });
+    </script>
+  </body>
+</html>
