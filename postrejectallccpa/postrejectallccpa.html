@@ -24,9 +24,7 @@
                   baseEndpoint: 'https://cdn.privacy-mgmt.com',
                   propertyHref: 'https://postrejectallccpa.com',
                   ccpa: { },
-                  authId: '123123123',
-                  
-                  
+
                   events: {
                       onMessageChoiceSelect: function() {
                           console.log('[event] onMessageChoiceSelect', arguments);
@@ -58,6 +56,7 @@
                   }
               }
           }
+            document.cookie= "authId=123123123";
           </script>
           <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
           
