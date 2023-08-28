@@ -258,8 +258,45 @@
       src="https://preprod-cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js"
       async
     ></script>
+    <script>
+      function ping_fn(data, success) {
+        console.log("Ping request successful: " + success);
+        console.log(data);
+      }
+      function hasSection_fn(data, success) {
+        console.log("Specified section detected: " + success);
+      }
+      function getSection_fn(data, success) {
+        console.log("Get section request successful: " + success);
+        console.log(data);
+      }
+      function getField_fn(data, success) {
+        console.log("getField successfully executed: " + success);
+        console.log("Value for the specified field is: " + data);
+      }
+      function show_gppString(data, success) {
+        console.log("Update to the gpp string");
+        console.log("The new gpp string is: " + ping.gppString);
+      }
+    </script>
   </head>
   <body>
     <h1>GPP 1.1 Test</h1>
+    <button onclick="__gpp('ping', ping_fn)">PingTest</button>
+    <br />
+    <br />
+    <button onclick="__gpp('hasSection', hasSection_fn, 'usnatv1')">
+      Has usnatv1 Section Test
+    </button>
+    <br />
+    <br />
+    <button onclick="__gpp('getSection', getSection_fn, 'usnatv1')">
+      Get usnatv1 Test
+    </button>
+    <br />
+    <br />
+    <button onclick="__gpp('getField', getField_fn, 'usnatv1.SharingNotice')">
+      Get usnatv1 Sharing Field value Test
+    </button>
   </body>
 </html>
