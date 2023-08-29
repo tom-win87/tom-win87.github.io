@@ -278,6 +278,17 @@
         console.log("Update to the gpp string");
         console.log("The new gpp string is: " + ping.gppString);
       }
+
+      function myFunction(EventListener, success) {
+        console.log("Event listener added:" + success);
+        console.log(EventListener);
+        let eventId = EventListener.listenerId;
+      }
+
+      function remove_fn(data, success) {
+        console.log("Event listener removed:" + data);
+        console.log("Event listened successfully executed:" + success);
+      }
     </script>
   </head>
   <body>
@@ -297,6 +308,16 @@
     <br />
     <button onclick="__gpp('getField', getField_fn, 'usnatv1.SharingNotice')">
       Get usnatv1 Sharing Field value Test
+    </button>
+    <br />
+    <br />
+    <button onclick="__gpp('addEventListener', myFunction)">
+      Add event listener
+    </button>
+    <br />
+    <br />
+    <button onclick="__gpp('removeEventListener', remove_fn, 1000)">
+      Remove event listener
     </button>
   </body>
 </html>
