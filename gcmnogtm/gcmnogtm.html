@@ -11,9 +11,15 @@
 
   <head>
     <script>
-      // Define dataLayer and the gtag function.
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+window.gtag = function() { dataLayer.push(arguments); }
+window.gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
       </script>
       
       <link href="style.css" rel="stylesheet" />
