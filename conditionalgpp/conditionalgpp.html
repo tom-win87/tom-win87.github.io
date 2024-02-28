@@ -55,6 +55,7 @@ window.__gpp_addFrame=function(e){if(!window.frames[e])if(document.body){var t=d
                 onConsentReady: function (message_type, uuid, string, info) {
                     if((message_type == "usnat") && (info.applies)){
                       /* code to insert the usnat footer link */
+                            console.log('[event] onConsentReady', arguments);
                             document.getElementById("pmLink").style.visibility="visible"; 
                             document.getElementById("pmLink").innerHTML= "Manage Opt-in Status ";
                             document.getElementById("pmLink").onclick= function(){
@@ -63,6 +64,7 @@ window.__gpp_addFrame=function(e){if(!window.frames[e])if(document.body){var t=d
                     }
                     if((message_type == "gdpr") && (info.applies)){
                       /* code to insert the GDPR footer link */
+                            console.log('[event] onConsentReady', arguments);
                             document.getElementById("pmLink").style.visibility="visible"; 
                             document.getElementById("pmLink").innerHTML= "Manage consent";
                             document.getElementById("pmLink").onclick= function(){
