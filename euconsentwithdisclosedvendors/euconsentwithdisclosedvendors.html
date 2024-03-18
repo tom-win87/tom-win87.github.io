@@ -59,7 +59,21 @@
     </script>
     <script src='https://preprod-cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
     
-    
+        <script>
+      function euconsentWithDisclosedVendors() {
+  console.log("euconsentWithDisclosedVendors called:");
+  __tcfapi("euconsentWithDisclosedVendors", (euconsentWithDisclosedVendors, success) => {
+    if (success) {
+      // do something with euconsentWithDisclosedVendors
+      console.log(euconsentWithDisclosedVendors);
+      console.log("euconsentWithDisclosedVendors request was successful: " + success);
+    } else {
+      // do something else
+      console.log("tcfapi call was not successful!");
+    }
+  });
+}
+</script>
 </head>
 
   <body>
