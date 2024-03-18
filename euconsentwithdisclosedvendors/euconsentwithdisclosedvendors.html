@@ -49,6 +49,9 @@
                 },
                 onConsentReady: function (consentUUID, euconsent) {
                     console.log('[event] onConsentReady', arguments);
+                    __tcfapi('euconsentWithDisclosedVendors', 2, function (euconsentWithDisclosedVendors, success) {
+                      console.log({euconsentWithDisclosedVendors})
+                    });
                 },
                 onError: function() {
                     console.log('[event] onError', arguments);
