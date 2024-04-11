@@ -26,50 +26,70 @@
             
             gdpr: { },
             events: {
-              onMessageReady: function (message_type) {
-                  console.log('onMessageReady' + message_type)
+
+              onMessageReady: function (messageType) {
+                  console.log('onMessageReady: ' + messageType + ' ' +typeof messageType);
               },
-              onMessageChoiceSelect: function (message_type, choice_id, choice_type_id) {
-                  console.log('message_type: ' + message_type);
-                  console.log('choice_id: ' + choice_id);
-                  console.log('choice_type_id: ' + choice_type_id);
+
+
+              onMessageChoiceSelect: function (message_type, choice_id, choice_type_id, test) {
+                  console.log('message_type: ' + message_type + ' ' + typeof message_type);
+                  console.log('choice_id: ' + choice_id + ' ' + typeof choice_id);
+                  console.log('choice_type_id: ' + choice_type_id + ' ' + typeof choice_type_id);
               },
+
+
               onPrivacyManagerAction: function (message_type, pmData) {
                   console.log('onPrivacyManagerAction:');
                   console.log('message_type:' + message_type);
-                  console.log('purposeConsent: ' + pmData.purposeConsent);
-                  console.log('vendorConsent: ' + pmData.vendorConsent);
-                  console.log(JSON.stringify(pmData));
+                  console.log(pmData);
+                  console.log('purposeConsent: ' + pmData.purposeConsent + ' ' + typeof pmData.purposeConsent);
+                  console.log('vendorConsent: ' + pmData.vendorConsent + ' ' + typeof pmData.vendorConsent);
+                 // console.log(JSON.stringify(pmData));
               },
-              onPrivacyManagerActionStatus: function (message_type, pmData) {
+              
+              
+              onPrivacyManagerActionStatus: function (message_type, status, actionType) {
                   console.log('onPrivacyManagerActionStatus:');
-                  console.log('message_type:' + message_type);
-                  console.log('status:' + pmData);
-                  console.log(JSON.stringify(pmData));
+                  console.log('message_type: ' + message_type);
+                  console.log('status: ' + status);
+                  console.log('actionType: ' + actionType);
             },
+            
               onMessageChoiceError: function (message_type, err) {
                   console.log('message_type: ' + message_type);
                   console.log('error: ' + err)
               },
-              onConsentReady: function (message_type, consentUUID, euconsent) {
+              
+              onConsentReady: function (message_type, consentUUID, euconsent, info) {
                   console.log('onConsentReady:');
-                  console.log('message_type: ' + message_type);
-                  console.log('consentUUID: ' + consentUUID)
-                  console.log('euconsent: ' + euconsent)
+                  console.log('Message Type: ' + message_type + ' ' + typeof message_type);
+                  console.log('consentUUID: ' + consentUUID + ' ' + typeof consentUUID);
+                  console.log('euconsent: ' + euconsent + ' ' + typeof euconsent);
+                  console.log(info);
+                  console.log(typeof info.addtlConsent);
+                  console.log(typeof info.applies);
+                  console.log(typeof info.consentedtoAll);
               },
               onPMCancel: function (message_type) {
                   console.log('onPMCancel' + message_type)
               },
+  
+              
               onMessageReceiveData: function (message_type, data) {
-                  console.log('message_type: ' + message_type);
-                  console.log('prtnUUID: ' + data.prtnUUID);
-                  console.log('messageId: ' + data.messageId);
-                  console.log('messageDescription: ' + data.messageDescription);
-                  console.log('bucket: ' + data.bucket);
-                  console.log('categoryId: ' + data.categoryId);
-                  console.log('subCategoryId: ' + data.subCategoryId);
-                  console.log(JSON.stringify(data));
+                  console.log('onMessageReceiveData:');
+                  console.log(data);
+                  console.log('message_type: ' + message_type +typeof message_type);
+                  console.log('prtnUUID: ' + data.prtnUUID +typeof data.prtnUUID);
+                  console.log('uuid: ' + uuid +typeof data.uuid);
+                  console.log('messageId: ' + data.messageId +typeof data.messageId);
+                  console.log('messageDescription: ' + data.messageDescription + typeof data.messageDescription);
+                  console.log('bucket: ' + data.bucket + typeof data.bucket);
+                  console.log('categoryId: ' + data.categoryId + typeof data.categoryId);
+                  console.log('subCategoryId: ' + data.subCategoryId + typeof data.subCategoryId);
+                  //console.log(JSON.stringify(data));
               },
+
               onSPPMObjectReady: function () {
                    console.log('onSPPMObjectReady')
               },
@@ -78,6 +98,7 @@
                   console.log('errorCode: ' + errorCode);
                   console.log(errorObject);
                   console.log('userReset: ' + userReset);
+                  
               }
             }
         }
@@ -89,6 +110,11 @@
 </head>
 
   <body>
+     <!-- script returns vendor purpose mapping 
+    <script>
+      function show_vpm(vpm) { for(i in vpm) { var vendor = vpm[i]; var vendor_id = vendor.vendorId; console.log(" "); console.log("for vendor - " + vendor_id); var all_categories = vendor.categories; for(j in all_categories) { var category = all_categories[j]; var purpose_id = category._id; var leg_basis = category.type; console.log(">> the purpose id is - " + purpose_id); console.log(">> the legal basis is - " + leg_basis); } } } __tcfapi('getVendorPurposeMapping', 2, function(vpm, success) { show_vpm(vpm) });
+      </script>
+      -->
     <script
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
@@ -302,9 +328,6 @@
       >
         <div>
             <button id="gdpr_link" onclick="window._sp_.gdpr.loadPrivacyManagerModal('730829')">Edit privacy setting</button>
-         </div>
-              <div>
-            <button id="gdpr_flm" onclick="window._sp_.gdpr.loadPrivacyManagerModal('732065')">Edit first layer message</button>
          </div>
       <p>
         Powered by
