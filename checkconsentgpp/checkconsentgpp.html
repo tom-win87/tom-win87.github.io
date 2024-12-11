@@ -42,6 +42,7 @@
                         console.log('[event] onMessageChoiceSelect', arguments);
                       },
                       onConsentReady: function(message_type, consentUUID, euconsent, info) {
+                        console.log('onConsentReady: ');
                         //check to see if US Multi-State Privacy applies
                         if(info.applies === true){
                           console.log('U.S. Multi-State Privacy applies. Check consent object.');
@@ -62,7 +63,8 @@
                 }
             }
             </script>
-            <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
+            <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async>
+            </script>
 </head>
 
   <body>
