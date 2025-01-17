@@ -17,26 +17,28 @@
             config: {
                accountId: 22,
                 baseEndpoint: 'https://cdn.privacy-mgmt.com',
-                preference_mgmt: { },
+                preference_mgmt: {},
                 propertyHref: 'https://ucpdocanon.com',
-                events: { onMessageReady: function() {
-                  console.log('[event] onMessageReady', arguments);
-                },
-    onMessageReceiveData: function() {
-                  console.log('[event] onMessageReceiveData', arguments);
-                },
-    onSPPMObjectReady: function() {
-                  console.log('[event] onSPPMObjectReady', arguments);
-                },
-    onSPReady: function() {
-                  console.log('[event] onSPReady', arguments);
-                },
-    onError: function() {
-                  console.log('[event] onError', arguments);
-                },
-    onPrefCancel: function() {
-                  console.log('[event] onPrefCancel', arguments);
-                } }
+                events: { 
+                  onMessageReady: function() {
+                    console.log('[event] onMessageReady', arguments);
+                  },
+                  onMessageReceiveData: function() {
+                    console.log('[event] onMessageReceiveData', arguments);
+                  },
+                  onSPPMObjectReady: function() {
+                    console.log('[event] onSPPMObjectReady', arguments);
+                  },
+                  onSPReady: function() {
+                    console.log('[event] onSPReady', arguments);
+                  },
+                  onError: function() {
+                    console.log('[event] onError', arguments);
+                  },
+                  onPrefCancel: function() {
+                    console.log('[event] onPrefCancel', arguments);
+                  } 
+                }
             }
         }
         </script>
@@ -238,7 +240,7 @@
         ><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a
       >
         <div>
-            <button id="ucp_link" onclick="window._sp_.preferences.loadPreferenceCenter(1244129)">Manage my Preferences</button>
+            <button onclick="window._sp_.preferences.loadPreferenceCenter(1244130)">Manage my Preferences</button>
          </div>
       <p>
         Powered by
