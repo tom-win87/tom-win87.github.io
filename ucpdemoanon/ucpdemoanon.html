@@ -20,24 +20,45 @@
                 preference_mgmt: {},
                 propertyHref: 'https://ucpdocanon.com',
                 events: { 
-                  onMessageReady: function() {
-                    console.log('[event] onMessageReady', arguments);
+                  onMessageReady: function(message_type) {
+                    console.log('onMessageReady fired: ');
+                    console.log('message_type: ' + message_type)
                   },
-                  onMessageReceiveData: function() {
-                    console.log('[event] onMessageReceiveData', arguments);
-                  },
-                  onSPPMObjectReady: function() {
-                    console.log('[event] onSPPMObjectReady', arguments);
+                  onMessageReceiveData: function(message_type, data) {
+                    console.log('onMessageReceiveData fired: ');
+                    console.log('message_type: ' + message_type); 
+                    console.log('prtnUUID: ' + data.prtnUUID); 
+                    console.log('messageId: ' + data.messageId); 
+                    console.log('messageDescription: ' + data.messageDescription); 
+                    console.log('bucket: ' + data.bucket); 
+                    console.log('categoryId: ' + data.categoryId); 
+                    console.log('subCategoryId: ' + data.subCategoryId); 
+                    console.log(JSON.stringify(data));
                   },
                   onSPReady: function() {
                     console.log('[event] onSPReady', arguments);
                   },
-                  onError: function() {
-                    console.log('[event] onError', arguments);
+                  onError: function(message_type, errorCode, errorObject, userReset) {
+                    console.log('onError fired: ');
+                    console.log('message_type: ' + message_type); 
+                    console.log('errorCode: ' + errorCode); 
+                    console.log(errorObject); 
+                    console.log('userReset: ' + userReset);
                   },
-                  onPrefCancel: function() {
-                    console.log('[event] onPrefCancel', arguments);
-                  } 
+                  onPreferenceMgmtCancel: function(message_type) {
+                    console.log('onPreferenceMgmtCancel fired:');
+                    console.log('message_type: ' + message_type);
+                  },
+                  onPreferenceMgmtAction: function(message_type, actionType) {
+                    console.log('onPreferenceMgmtAction fired:');
+                    console.log('message_type: ' + message_type);
+                    console.log('actionType: ' + actionType);
+                  },
+                  onPreferenceMgmtActionComplete: function(message_type, actionType) {
+                    console.log('onPreferenceMgmtActionComplete fired:');
+                    console.log('message_type: ' + message_type);
+                    console.log('actionType: ' + actionType);
+                  }  
                 }
             }
         }
@@ -240,7 +261,7 @@
         ><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a
       >
         <div>
-            <button onclick="window._sp_.preferences.loadPreferenceCenter(1250304)">Manage my Preferences</button>
+            <button onclick="window._sp_.preferences.loadPreferenceCenter(1252593)">Manage my Preferences</button>
          </div>
       <p>
         Powered by
