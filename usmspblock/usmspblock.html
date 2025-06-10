@@ -69,11 +69,14 @@ onPMCancel: function() {
         if (!consentData || !consentData.vendors) return;
 
         consentData.vendors.forEach(vendor => {
-          if (vendor.consented === false) {
+          if (vendor.consented === true) {
             const script = document.querySelector(`script[vendor-id="${vendor._id}"]`);
             if (script) {
+              script.setAttribute("src", script.getAttribute("sp-src"))
+              console.log('src set to' + script.getAttribute("sp-src") + "for" + vendor._id);
               script.removeAttribute("sp-src");
               console.log(`Removed sp-src from vendor-id ${vendor._id}`);
+              
             }
           }
         });
