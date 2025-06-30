@@ -37,9 +37,17 @@ onMessageChoiceSelect: function() {
             },
 //trigger vendor tag function
 onConsentReady: function (message_type, consentUUID, euconsent, info) {
-   if(message_type == "gdpr" && info.applies){
-      fetchAndExecuteVendorFunctionsGDPR();
-   }
+  if(message_type == "gdpr" && info.applies){
+    __tcfapi('getCustomVendorConsents', 2, (consentData, success) => {
+        if (!success || !consentData) {
+          console.warn('Failed to get vendor consents.');
+          return;
+        }
+
+        // ✅ Call your existing logic
+        executeVendorFunctionsGDPR(consentData);
+    });
+  }
 },
 onPrivacyManagerAction: function() {
               console.log('[event] onPrivacyManagerAction', arguments);
@@ -53,24 +61,6 @@ onPMCancel: function() {
     <script src='https://cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js' async></script>
 
     <script>
-      //define wrapper function
-      function fetchAndExecuteVendorFunctionsGDPR() {
-        if (typeof __tcfapi !== 'function') {
-          console.warn('__tcfapi is not available.');
-          return;
-        }
-
-        __tcfapi('getCustomVendorConsents', 2, (consentData, success) => {
-          if (!success || !consentData) {
-            console.warn('Failed to get vendor consents.');
-            return;
-          }
-
-          // ✅ Call your existing logic
-          executeVendorFunctionsGDPR(consentData);
-        });
-      }
-
       //executeVendorFunctionsGDPR definition
       function executeVendorFunctionsGDPR(consentData) {
         const vendorsArray = [
